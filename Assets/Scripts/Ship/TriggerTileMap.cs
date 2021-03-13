@@ -33,6 +33,7 @@ public class TriggerTileMap : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if(collision.tag != "Grid")
         try
         {
             Rigidbody2D obj = collision.gameObject.GetComponent<Rigidbody2D>();

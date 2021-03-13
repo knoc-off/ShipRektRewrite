@@ -5,14 +5,17 @@ using UnityEngine;
 public class PlayerControllerScript : MonoBehaviour
 {
     Rigidbody2D playerRB;
-    public float Maxspeed = 1;
-    public float speed;
+    public float WaterSpeed;
     public float LandSpeed;
-    public float MinVelocity = 1;
-    public float stopDelay;
     public Transform cam;
     public Transform PlayerSprite;
-    private int MoveMode = 0;
+
+    private int MoveMode = 0; 
+
+    private float EnterAngle;
+    private float EnterTime;
+    public float RotateCamSpeed = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +25,26 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Set timer Start
         MoveMode = 1;
         playerRB.mass = 0;
+
+        EnterAngle = cam.rotation.eulerAngles.z;
+        EnterTime = Time.realtimeSinceStartup;
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        cam.rotation = collision.transform.rotation; // delta of current player rotation and ship rotation.up down left & right?
+        MoveMode = 1;
+        playerRB.mass = 0;
+        // For time.fixedtime - setTime Mathf.Learp angle from/ to
+
+        //print(Time.realtimeSinceStartup - EnterTime);
+        
+        //Quaternion setRotation = new Quaternion();
+        //setRotation.eulerAngles = new Vector3(0, 0, Mathf.LerpAngle(EnterAngle, collision.transform.rotation.z, Time.realtimeSinceStartup - EnterTime));
+        cam.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.LerpAngle(EnterAngle, collision.transform.eulerAngles.z, (Time.realtimeSinceStartup - EnterTime) * RotateCamSpeed))); // delta of current player rotation and ship rotation.up down left & right?
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -45,7 +61,7 @@ public class PlayerControllerScript : MonoBehaviour
         camF = camF.normalized;
         camR = camR.normalized;
 
-        playerRB.AddForce((camF * move.y + camR * move.x) * speed, ForceMode2D.Impulse);
+        playerRB.AddForce((camF * move.y + camR * move.x) * WaterSpeed, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
@@ -63,7 +79,7 @@ public class PlayerControllerScript : MonoBehaviour
             camF = camF.normalized;
             camR = camR.normalized;
 
-            playerRB.AddForce((camF * move.y + camR * move.x) * speed, ForceMode2D.Force);
+            playerRB.AddForce((camF * move.y + camR * move.x) * WaterSpeed, ForceMode2D.Force);
 
 
         }

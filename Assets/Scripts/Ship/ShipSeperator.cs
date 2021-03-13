@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class SubShip
+public class SubShip    // should add a type of array that stores what kind of block at x,y; i should use a Tiles[,] array due to it not being inharreted from mono so i can still thread it
 {
     public Vector2Int Origin; // 0,0 of this array corrisponds to the X,Y of the Parent array
     public int[,] ShipArray;
@@ -124,7 +124,7 @@ public class ShipSeperator : MonoBehaviour
             {
 
 
-                arrayPrint(k.ShipArray);
+                arrayPrint(k.ShipArray);//could make it save the tilebase at in a shupchunk then delete the whole gameobject and then make a new ship
                 ShipCoord.CreateShip(gameObject, k, ShipData.Grid.transform.position, ShipData.Grid.GetComponent<Rigidbody2D>().velocity, ShipData.Grid.transform.rotation, new Vector2(FloorLayoutTilemap.origin.x, FloorLayoutTilemap.origin.y));
 
                 // provide reference ship and then a shipChunk to go with it. it will then go through and split it into a second ship removing the first one
@@ -139,6 +139,10 @@ public class ShipSeperator : MonoBehaviour
             }
             ShipData.Grid.GetComponent<Tilemap>().ClearAllTiles();
             Destroy(gameObject,1);
+        }
+        else
+        {
+
         }
 
         //Delete This GameObject? might cause errors

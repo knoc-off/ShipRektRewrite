@@ -160,7 +160,7 @@ public class TileManager : MonoBehaviour
             LookupTable.Add(k, Source);
     }
 
-    //should have a way to input a TileBase and get where its from/ what its from. through a dictonary 
+    //should have a way to input a TileBase and get where its from/ what its from. through a dictonary  
 
 
 
