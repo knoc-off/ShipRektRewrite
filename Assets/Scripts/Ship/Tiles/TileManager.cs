@@ -27,6 +27,21 @@ public class GetTileIndex
             Total += 1;
         return Total;
     }
+    public int Getindex(Tiles[,] array, Vector2Int Position)
+    {
+        GetSurroundings test = new GetSurroundings(Position, array);
+        
+        int Total = 0;
+        if (test.up != Position && array[test.up.x,test.up.y] != null)
+            Total += 8;
+        if (test.down != Position && array[test.down.x, test.down.y] != null)
+            Total += 4;
+        if (test.left != Position && array[test.left.x, test.left.y] != null)
+            Total += 2;
+        if (test.right != Position && array[test.right.x, test.right.y] != null)
+            Total += 1;
+        return Total;
+    }
 
 }
 
@@ -132,10 +147,6 @@ public class TileManager : MonoBehaviour
     [SerializeField]
     private TileBase[] WoodWallArray = new TileBase[16];
 
-    public static Tiles ReverseLookUpTile(TileBase Lookup)
-    {
-        return LookupTable[Lookup];
-    }
 
     private void Start()
     {

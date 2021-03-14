@@ -48,7 +48,7 @@ public class TriggerTileMap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("Trigger Enter");
+        //print("Trigger Enter");
         try
         {
             if(collision.tag == "Player")

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ceb1330f854a5d3419d2391d9d3d4e04
+guid: bc1a2375cf564094fbe765f7ec031fc7
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -94,7 +94,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -141,15 +141,44 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 8
-        height: 8
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 32, y: -25}
+        - {x: 32, y: 17}
+        - {x: 31, y: 18}
+        - {x: 26, y: 18}
+        - {x: 26, y: 23}
+        - {x: 23, y: 26}
+        - {x: 18, y: 26}
+        - {x: 18, y: 31}
+        - {x: 17, y: 32}
+        - {x: -17, y: 32}
+        - {x: -18, y: 31}
+        - {x: -18, y: 26}
+        - {x: -23, y: 26}
+        - {x: -26, y: 23}
+        - {x: -26, y: 10}
+        - {x: -31, y: 10}
+        - {x: -32, y: 9}
+        - {x: -32, y: -17}
+        - {x: -31, y: -18}
+        - {x: -26, y: -18}
+        - {x: -26, y: -23}
+        - {x: -23, y: -26}
+        - {x: -18, y: -26}
+        - {x: -18, y: -31}
+        - {x: -17, y: -32}
+        - {x: 25, y: -32}
+        - {x: 26, y: -31}
+        - {x: 26, y: -26}
+        - {x: 31, y: -26}
+      tessellationDetail: 1
       bones: []
       spriteID: a639629039e497a70800000000000000
       internalID: 8825171338229879658
@@ -161,16 +190,40 @@ TextureImporter:
       name: SolidWoodFloor_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 24
-        width: 8
-        height: 8
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 23, y: 32}
+        - {x: 22, y: 31}
+        - {x: 22, y: 26}
+        - {x: 2, y: 26}
+        - {x: 2, y: 31}
+        - {x: 1, y: 32}
+        - {x: -9, y: 32}
+        - {x: -10, y: 31}
+        - {x: -10, y: 26}
+        - {x: -23, y: 26}
+        - {x: -26, y: 23}
+        - {x: -26, y: 18}
+        - {x: -31, y: 18}
+        - {x: -32, y: 17}
+        - {x: -32, y: -17}
+        - {x: -31, y: -18}
+        - {x: -26, y: -18}
+        - {x: -26, y: -23}
+        - {x: -23, y: -26}
+        - {x: -2, y: -26}
+        - {x: -2, y: -31}
+        - {x: -1, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+      tessellationDetail: 1
       bones: []
       spriteID: 8641555124a5ab590800000000000000
       internalID: -7657708976517868440
@@ -182,16 +235,43 @@ TextureImporter:
       name: SolidWoodFloor_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
-        width: 8
-        height: 8
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: -2, y: -26}
+        - {x: -2, y: -31}
+        - {x: -1, y: -32}
+        - {x: 9, y: -32}
+        - {x: 10, y: -31}
+        - {x: 10, y: -26}
+        - {x: 15, y: -26}
+        - {x: 18, y: -23}
+        - {x: 18, y: -18}
+        - {x: 23, y: -18}
+        - {x: 26, y: -15}
+        - {x: 26, y: 23}
+        - {x: 23, y: 26}
+        - {x: 10, y: 26}
+        - {x: 10, y: 31}
+        - {x: 9, y: 32}
+        - {x: -9, y: 32}
+        - {x: -10, y: 31}
+        - {x: -10, y: 26}
+        - {x: -14, y: 26}
+        - {x: -14, y: 31}
+        - {x: -15, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: -23, y: -32}
+        - {x: -22, y: -31}
+        - {x: -22, y: -26}
+      tessellationDetail: 1
       bones: []
       spriteID: 0136cf170f06cebe0800000000000000
       internalID: -1446674794471988464
@@ -203,16 +283,32 @@ TextureImporter:
       name: SolidWoodFloor_3
       rect:
         serializedVersion: 2
-        x: 24
-        y: 24
-        width: 8
-        height: 8
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 32, y: -26}
+        - {x: 32, y: 32}
+        - {x: 15, y: 32}
+        - {x: 14, y: 31}
+        - {x: 14, y: 26}
+        - {x: -14, y: 26}
+        - {x: -14, y: 31}
+        - {x: -15, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -26}
+        - {x: -18, y: -26}
+        - {x: -18, y: -31}
+        - {x: -17, y: -32}
+        - {x: 17, y: -32}
+        - {x: 18, y: -31}
+        - {x: 18, y: -26}
+      tessellationDetail: 1
       bones: []
       spriteID: f2f9a20822d634870800000000000000
       internalID: 8665890102937558831
@@ -225,15 +321,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 8
-        height: 8
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 32, y: -17}
+        - {x: 32, y: 1}
+        - {x: 31, y: 2}
+        - {x: 26, y: 2}
+        - {x: 26, y: 15}
+        - {x: 23, y: 18}
+        - {x: 10, y: 18}
+        - {x: 10, y: 23}
+        - {x: 7, y: 26}
+        - {x: -15, y: 26}
+        - {x: -18, y: 23}
+        - {x: -18, y: 18}
+        - {x: -23, y: 18}
+        - {x: -26, y: 15}
+        - {x: -26, y: 10}
+        - {x: -31, y: 10}
+        - {x: -32, y: 9}
+        - {x: -32, y: -9}
+        - {x: -31, y: -10}
+        - {x: -26, y: -10}
+        - {x: -26, y: -32}
+        - {x: 26, y: -32}
+        - {x: 26, y: -18}
+        - {x: 31, y: -18}
+      tessellationDetail: 1
       bones: []
       spriteID: ae67bb4f068eb5100800000000000000
       internalID: 97927320039028458
@@ -245,16 +365,33 @@ TextureImporter:
       name: SolidWoodFloor_5
       rect:
         serializedVersion: 2
-        x: 8
-        y: 16
-        width: 8
-        height: 8
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 18, y: 31}
+        - {x: 17, y: 32}
+        - {x: -1, y: 32}
+        - {x: -2, y: 31}
+        - {x: -2, y: 26}
+        - {x: -15, y: 26}
+        - {x: -18, y: 23}
+        - {x: -18, y: 18}
+        - {x: -23, y: 18}
+        - {x: -26, y: 15}
+        - {x: -26, y: 2}
+        - {x: -31, y: 2}
+        - {x: -32, y: 1}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 26}
+        - {x: 18, y: 26}
+      tessellationDetail: 1
       bones: []
       spriteID: 465af9f204de37760800000000000000
       internalID: 7454562668160984420
@@ -266,16 +403,33 @@ TextureImporter:
       name: SolidWoodFloor_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 8
-        height: 8
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 26, y: 10}
+        - {x: 26, y: 15}
+        - {x: 23, y: 18}
+        - {x: 18, y: 18}
+        - {x: 18, y: 23}
+        - {x: 15, y: 26}
+        - {x: 2, y: 26}
+        - {x: 2, y: 31}
+        - {x: 1, y: 32}
+        - {x: -17, y: 32}
+        - {x: -18, y: 31}
+        - {x: -18, y: 26}
+        - {x: -32, y: 26}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 9}
+        - {x: 31, y: 10}
+      tessellationDetail: 1
       bones: []
       spriteID: 09bc49b8aaeb1ad40800000000000000
       internalID: 5593961851866368912
@@ -287,16 +441,26 @@ TextureImporter:
       name: SolidWoodFloor_7
       rect:
         serializedVersion: 2
-        x: 24
-        y: 16
-        width: 8
-        height: 8
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 10, y: 31}
+        - {x: 9, y: 32}
+        - {x: -17, y: 32}
+        - {x: -18, y: 31}
+        - {x: -18, y: 26}
+        - {x: -32, y: 26}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 26}
+        - {x: 10, y: 26}
+      tessellationDetail: 1
       bones: []
       spriteID: b7f607c2274f4fcb0800000000000000
       internalID: -4830967729052684421
@@ -309,15 +473,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 8
-        height: 8
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 23, y: -26}
+        - {x: 26, y: -23}
+        - {x: 26, y: 22}
+        - {x: 31, y: 22}
+        - {x: 32, y: 23}
+        - {x: 32, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: 15}
+        - {x: -31, y: 14}
+        - {x: -26, y: 14}
+        - {x: -26, y: 2}
+        - {x: -31, y: 2}
+        - {x: -32, y: 1}
+        - {x: -32, y: -17}
+        - {x: -31, y: -18}
+        - {x: -26, y: -18}
+        - {x: -26, y: -23}
+        - {x: -23, y: -26}
+        - {x: -18, y: -26}
+        - {x: -18, y: -31}
+        - {x: -17, y: -32}
+        - {x: 9, y: -32}
+        - {x: 10, y: -31}
+        - {x: 10, y: -26}
+      tessellationDetail: 1
       bones: []
       spriteID: 6aa71396f74e4a110800000000000000
       internalID: 1271392230702152358
@@ -329,16 +517,33 @@ TextureImporter:
       name: SolidWoodFloor_9
       rect:
         serializedVersion: 2
-        x: 8
-        y: 8
-        width: 8
-        height: 8
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: -32, y: 32}
+        - {x: -32, y: 15}
+        - {x: -31, y: 14}
+        - {x: -26, y: 14}
+        - {x: -26, y: -7}
+        - {x: -23, y: -10}
+        - {x: -18, y: -10}
+        - {x: -18, y: -15}
+        - {x: -15, y: -18}
+        - {x: -10, y: -18}
+        - {x: -10, y: -23}
+        - {x: -7, y: -26}
+        - {x: 6, y: -26}
+        - {x: 6, y: -31}
+        - {x: 7, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+      tessellationDetail: 1
       bones: []
       spriteID: 01835f38b5510c930800000000000000
       internalID: 4161349538490431504
@@ -350,16 +555,27 @@ TextureImporter:
       name: SolidWoodFloor_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 8
-        width: 8
-        height: 8
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 23, y: -26}
+        - {x: 26, y: -23}
+        - {x: 26, y: -10}
+        - {x: 31, y: -10}
+        - {x: 32, y: -9}
+        - {x: 32, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 1, y: -32}
+        - {x: 2, y: -31}
+        - {x: 2, y: -26}
+      tessellationDetail: 1
       bones: []
       spriteID: 19fc241ac08bc9290800000000000000
       internalID: -7882222883420581999
@@ -371,16 +587,26 @@ TextureImporter:
       name: SolidWoodFloor_11
       rect:
         serializedVersion: 2
-        x: 24
-        y: 8
-        width: 8
-        height: 8
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 6, y: -31}
+        - {x: 7, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: -23, y: -32}
+        - {x: -22, y: -31}
+        - {x: -22, y: -26}
+        - {x: 6, y: -26}
+      tessellationDetail: 1
       bones: []
       spriteID: 5e4371cd7c36eee10800000000000000
       internalID: 2228828575637124325
@@ -394,14 +620,31 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 8
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 32, y: -17}
+        - {x: 32, y: 17}
+        - {x: 31, y: 18}
+        - {x: 26, y: 18}
+        - {x: 26, y: 31}
+        - {x: 25, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: 15}
+        - {x: -31, y: 14}
+        - {x: -26, y: 14}
+        - {x: -26, y: -14}
+        - {x: -31, y: -14}
+        - {x: -32, y: -15}
+        - {x: -32, y: -32}
+        - {x: 26, y: -32}
+        - {x: 26, y: -18}
+        - {x: 31, y: -18}
+      tessellationDetail: 1
       bones: []
       spriteID: fde6aa8d7ada646f0800000000000000
       internalID: -700681755603341601
@@ -413,16 +656,26 @@ TextureImporter:
       name: SolidWoodFloor_13
       rect:
         serializedVersion: 2
-        x: 8
+        x: 64
         y: 0
-        width: 8
-        height: 8
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: -32, y: 32}
+        - {x: -32, y: 15}
+        - {x: -31, y: 14}
+        - {x: -26, y: 14}
+        - {x: -26, y: -6}
+        - {x: -31, y: -6}
+        - {x: -32, y: -7}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+      tessellationDetail: 1
       bones: []
       spriteID: dadacdb797a8bdd60800000000000000
       internalID: 7916073024407514541
@@ -434,16 +687,26 @@ TextureImporter:
       name: SolidWoodFloor_14
       rect:
         serializedVersion: 2
-        x: 16
+        x: 128
         y: 0
-        width: 8
-        height: 8
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 26, y: -14}
+        - {x: 26, y: 14}
+        - {x: 31, y: 14}
+        - {x: 32, y: 15}
+        - {x: 32, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: -15}
+        - {x: 31, y: -14}
+      tessellationDetail: 1
       bones: []
       spriteID: 23da56f83f34330d0800000000000000
       internalID: -3444334576646378190
@@ -455,16 +718,20 @@ TextureImporter:
       name: SolidWoodFloor_15
       rect:
         serializedVersion: 2
-        x: 24
+        x: 192
         y: 0
-        width: 8
-        height: 8
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+      tessellationDetail: 1
       bones: []
       spriteID: 0fb7ce86dcd7cf0e0800000000000000
       internalID: -2234772993900512272

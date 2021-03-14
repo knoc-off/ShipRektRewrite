@@ -35,6 +35,7 @@ public class ShipCoordinator : MonoBehaviour
         Tilemap RefFloorTilemap = ReferenceShipData.Floor.GetComponent<Tilemap>();
         Tilemap RefWallTilemap = ReferenceShipData.Wall.GetComponent<Tilemap>();
 
+        print("\t\t\tTEST: " + RefFloorTilemap.origin);
 
         for (int x = 0; x < ShipChunk.ShipArray.GetLength(0); x++)
         {
@@ -51,43 +52,43 @@ public class ShipCoordinator : MonoBehaviour
 
                 //SOMETHINGS WROMG WITH THE PARENT SHIP POS. I NEED TO OFFSET FROM THAT
 
-                Vector2Int Offset = new Vector2Int((int)(ParentShipOrigin.x), (int)(ParentShipOrigin.y+0.5f -3));//1, -ShipChunk.ShipArray.GetLength(1) - 2);   //why in the hell is this number the way it is
-
-                var TileType = TileManager.WeakWoodFloor; // default... not good but eh fine for now
-                var WallType = TileManager.WoodWall; // default... not good but eh fine for now
+                Vector2 Offset = new Vector2();//(int)(ParentShipOrigin.x-1), (int)(ParentShipOrigin.y+0.5f -9));//1, -ShipChunk.ShipArray.GetLength(1) - 2);   //why in the hell is this number the way it is
+                Offset += ParentShipOrigin;
+                //var TileType = TileManager.WeakWoodFloor; // default... not good but eh fine for now
+                //var WallType = TileManager.WoodWall; // default... not good but eh fine for now
 
                 Offset += ShipChunk.Origin;// this is just the offset from the default array i need to also offset X,Y of 0, 0 by the parent array
 
                 //if (ShipChunk.ShipArray[x, y] == 1)
                 //    TileType = TileManager.LookupTable[FloorTilemap.GetTile(new Vector3Int(x + ShipChunk.Origin.x + Offset.x, y + ShipChunk.Origin.y + Offset.y, 0))];
 
-
+                Vector2Int OffsetInt = new Vector2Int((int)Offset.x, (int)Offset.y-2);
                 //GridTemplate.SetTile(new Vector3Int(x + ShipChunk.Origin.x + Offset.x, y + ShipChunk.Origin.y + Offset.y, 0), ShipChunk.ShipArray[x, y] == 1 ?
                 //    TileManager.Template.allTiles[GetTileType.Getindex(ShipChunk.ShipArray, new Vector2Int(x, y))] : null);
 
                 //adjust by subtracting array height and width -1
                 //WallTilemap.SetTile(new Vector3Int(x + ShipChunk.Origin.x, y + ShipChunk.Origin.y, 0), ShipChunk.ShipArray[x, y] == 1 ? TestingTile : null);
-                if(ShipChunk.ShipArray[x, y] == 1)
+                if (ShipChunk.ShipArray[x, y] != null)
                 {
                     //TileType = TileManager.LookupTable[FloorTilemap.GetTile(new Vector3Int(x + ShipChunk.Origin.x + Offset.x, y + ShipChunk.Origin.y + Offset.y, 0))];
 
-                    TileType = TileManager.LookupTable[RefFloorTilemap.GetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0))]; // This works!
+                    //TileType = TileManager.LookupTable[RefFloorTilemap.GetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0))]; // This works!
 
-                    if(RefWallTilemap.HasTile(new Vector3Int(x + Offset.x, y + Offset.y, 0)))
+                    if(ShipChunk.WallArray[x, y] != null)
                     {
 
-                        WallType = TileManager.LookupTable[RefWallTilemap.GetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0))];
-                        WallTilemap.SetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0),
-                            WallType.allTiles[GetTileType.Getindex(ShipChunk.WallArray, new Vector2Int(x, y))]);    // messing up here as it is referencing the whole ship array and not wall array -- FIX THIS
+                        //WallType = TileManager.LookupTable[RefWallTilemap.GetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0))];
+                        WallTilemap.SetTile(new Vector3Int(x + OffsetInt.x, y + OffsetInt.y, 0),
+                            ShipChunk.WallArray[x, y].allTiles[GetTileType.Getindex(ShipChunk.WallArray, new Vector2Int(x, y))]);    // messing up here as it is referencing the whole ship array and not wall array -- FIX THIS
                     }
 
-                    FloorTilemap.SetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0),
-                        TileType.allTiles[GetTileType.Getindex(ShipChunk.ShipArray, new Vector2Int(x, y))] );
-                    GridTemplate.SetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0),
+                    FloorTilemap.SetTile(new Vector3Int(x + OffsetInt.x, y + OffsetInt.y, 0),
+                        ShipChunk.ShipArray[x, y].allTiles[GetTileType.Getindex(ShipChunk.ShipArray, new Vector2Int(x, y))] );
+                    GridTemplate.SetTile(new Vector3Int(x + OffsetInt.x, y + OffsetInt.y, 0),
                         TileManager.Template.allTiles[GetTileType.Getindex(ShipChunk.ShipArray, new Vector2Int(x, y))]);
 
-                    RefFloorTilemap.SetTile(new Vector3Int(x+ Offset.x, y + Offset.y, 0),null);
-                    RefWallTilemap.SetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0),null);
+                    //RefFloorTilemap.SetTile(new Vector3Int(x+ Offset.x, y + Offset.y, 0),null);
+                    //RefWallTilemap.SetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0),null);
                 }
 
 
