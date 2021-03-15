@@ -90,11 +90,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 2
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -140,23 +140,35 @@ TextureImporter:
       name: _oodWall_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 24
-        width: 8
-        height: 8
+        x: 4
+        y: 208
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -2, y: 4}
-        - {x: -4, y: 2}
-        - {x: -4, y: -2}
-        - {x: -2, y: -4}
-        - {x: 2, y: -4}
-        - {x: 4, y: -2}
-        - {x: 4, y: 2}
-        - {x: 2, y: 4}
+      - - {x: 26, y: -15}
+        - {x: 26, y: 15}
+        - {x: 23, y: 18}
+        - {x: 18, y: 18}
+        - {x: 18, y: 23}
+        - {x: 15, y: 26}
+        - {x: -15, y: 26}
+        - {x: -18, y: 23}
+        - {x: -18, y: 18}
+        - {x: -23, y: 18}
+        - {x: -26, y: 15}
+        - {x: -26, y: -15}
+        - {x: -23, y: -18}
+        - {x: -18, y: -18}
+        - {x: -18, y: -23}
+        - {x: -15, y: -26}
+        - {x: 15, y: -26}
+        - {x: 18, y: -23}
+        - {x: 18, y: -18}
+        - {x: 23, y: -18}
       tessellationDetail: 1
       bones: []
       spriteID: f8beb834e30ffb2d0800000000000000
@@ -169,16 +181,28 @@ TextureImporter:
       name: _oodWall_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 24
-        width: 8
-        height: 8
+        x: 72
+        y: 208
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: -18, y: 23}
+        - {x: -18, y: 18}
+        - {x: -23, y: 18}
+        - {x: -26, y: 15}
+        - {x: -26, y: -15}
+        - {x: -23, y: -18}
+        - {x: -18, y: -18}
+        - {x: -18, y: -23}
+        - {x: -15, y: -26}
+        - {x: 32, y: -26}
+        - {x: 32, y: 26}
+        - {x: -15, y: 26}
+      tessellationDetail: 1
       bones: []
       spriteID: d077063811b7604a0800000000000000
       internalID: -6627474486480308467
@@ -190,16 +214,28 @@ TextureImporter:
       name: _oodWall_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
-        width: 8
-        height: 8
+        x: 140
+        y: 208
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 26, y: -15}
+        - {x: 26, y: 15}
+        - {x: 23, y: 18}
+        - {x: 18, y: 18}
+        - {x: 18, y: 23}
+        - {x: 15, y: 26}
+        - {x: -32, y: 26}
+        - {x: -32, y: -26}
+        - {x: 15, y: -26}
+        - {x: 18, y: -23}
+        - {x: 18, y: -18}
+        - {x: 23, y: -18}
+      tessellationDetail: 1
       bones: []
       spriteID: 2e885b815e1da9210800000000000000
       internalID: 1340614620988410082
@@ -211,16 +247,20 @@ TextureImporter:
       name: _oodWall_3
       rect:
         serializedVersion: 2
-        x: 24
-        y: 24
-        width: 8
-        height: 8
+        x: 208
+        y: 208
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: -32, y: -26}
+        - {x: 32, y: -26}
+        - {x: 32, y: 26}
+        - {x: -32, y: 26}
+      tessellationDetail: 1
       bones: []
       spriteID: 7396a6ce5a3445c40800000000000000
       internalID: 5500095424841279799
@@ -232,15 +272,21 @@ TextureImporter:
       name: _oodWall_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 8
-        height: 8
+        x: 4
+        y: 140
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -18, y: 26}
+        - {x: -26, y: 18}
+        - {x: -26, y: -32}
+        - {x: 26, y: -32}
+        - {x: 26, y: 18}
+        - {x: 18, y: 26}
       tessellationDetail: 0
       bones: []
       spriteID: 4ba955b20d3cd8370800000000000000
@@ -253,15 +299,20 @@ TextureImporter:
       name: _oodWall_5
       rect:
         serializedVersion: 2
-        x: 8
-        y: 16
-        width: 8
-        height: 8
+        x: 72
+        y: 140
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -18, y: 26}
+        - {x: -26, y: 18}
+        - {x: -26, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 26}
       tessellationDetail: 0
       bones: []
       spriteID: 005db96e9678a8540800000000000000
@@ -274,15 +325,20 @@ TextureImporter:
       name: _oodWall_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 8
-        height: 8
+        x: 140
+        y: 140
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -32, y: 26}
+        - {x: -32, y: -32}
+        - {x: 26, y: -32}
+        - {x: 26, y: 18}
+        - {x: 18, y: 26}
       tessellationDetail: 0
       bones: []
       spriteID: aa0b9bb2d2f3f3e70800000000000000
@@ -295,16 +351,26 @@ TextureImporter:
       name: _oodWall_7
       rect:
         serializedVersion: 2
-        x: 24
-        y: 16
-        width: 8
-        height: 8
+        x: 208
+        y: 140
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 18, y: 31}
+        - {x: 17, y: 32}
+        - {x: -17, y: 32}
+        - {x: -18, y: 31}
+        - {x: -18, y: 26}
+        - {x: -32, y: 26}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 26}
+        - {x: 18, y: 26}
+      tessellationDetail: 1
       bones: []
       spriteID: 0c42f7cdd72d9bb90800000000000000
       internalID: -7225512689127185216
@@ -316,16 +382,28 @@ TextureImporter:
       name: _oodWall_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 8
-        height: 8
+        x: 4
+        y: 72
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 26, y: -15}
+        - {x: 26, y: 32}
+        - {x: -26, y: 32}
+        - {x: -26, y: -15}
+        - {x: -23, y: -18}
+        - {x: -18, y: -18}
+        - {x: -18, y: -23}
+        - {x: -15, y: -26}
+        - {x: 15, y: -26}
+        - {x: 18, y: -23}
+        - {x: 18, y: -18}
+        - {x: 23, y: -18}
+      tessellationDetail: 1
       bones: []
       spriteID: 07489ec9e27ebff00800000000000000
       internalID: 1151768317110355056
@@ -337,16 +415,24 @@ TextureImporter:
       name: _oodWall_9
       rect:
         serializedVersion: 2
-        x: 8
-        y: 8
-        width: 8
-        height: 8
+        x: 72
+        y: 72
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: -26, y: 32}
+        - {x: -26, y: -15}
+        - {x: -23, y: -18}
+        - {x: -18, y: -18}
+        - {x: -18, y: -23}
+        - {x: -15, y: -26}
+        - {x: 32, y: -26}
+        - {x: 32, y: 32}
+      tessellationDetail: 1
       bones: []
       spriteID: 03ea96b58f9cdff40800000000000000
       internalID: 5763985166626827824
@@ -358,16 +444,24 @@ TextureImporter:
       name: _oodWall_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 8
-        width: 8
-        height: 8
+        x: 140
+        y: 72
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 26, y: -15}
+        - {x: 26, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -26}
+        - {x: 15, y: -26}
+        - {x: 18, y: -23}
+        - {x: 18, y: -18}
+        - {x: 23, y: -18}
+      tessellationDetail: 1
       bones: []
       spriteID: 42182a16da9da2980800000000000000
       internalID: -8562792402800967388
@@ -379,16 +473,26 @@ TextureImporter:
       name: _oodWall_11
       rect:
         serializedVersion: 2
-        x: 24
-        y: 8
-        width: 8
-        height: 8
+        x: 208
+        y: 72
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 32, y: -26}
+        - {x: 32, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -26}
+        - {x: -18, y: -26}
+        - {x: -18, y: -31}
+        - {x: -17, y: -32}
+        - {x: 17, y: -32}
+        - {x: 18, y: -31}
+        - {x: 18, y: -26}
+      tessellationDetail: 1
       bones: []
       spriteID: 9f61b08607bcf6040800000000000000
       internalID: 4643153424484603641
@@ -400,16 +504,20 @@ TextureImporter:
       name: _oodWall_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 8
-        height: 8
+        x: 4
+        y: 4
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 26, y: -32}
+        - {x: 26, y: 32}
+        - {x: -26, y: 32}
+        - {x: -26, y: -32}
+      tessellationDetail: 1
       bones: []
       spriteID: ff88f64a6f974ccd0800000000000000
       internalID: -2538770189702428417
@@ -421,16 +529,26 @@ TextureImporter:
       name: _oodWall_13
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 8
-        height: 8
+        x: 72
+        y: 4
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: -26, y: 32}
+        - {x: -26, y: 18}
+        - {x: -31, y: 18}
+        - {x: -32, y: 17}
+        - {x: -32, y: -17}
+        - {x: -31, y: -18}
+        - {x: -26, y: -18}
+        - {x: -26, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+      tessellationDetail: 1
       bones: []
       spriteID: 3a2934b3cbcec3700800000000000000
       internalID: 521551950060425891
@@ -442,16 +560,26 @@ TextureImporter:
       name: _oodWall_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 8
-        height: 8
+        x: 140
+        y: 4
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 32, y: 17}
+        - {x: 31, y: 18}
+        - {x: 26, y: 18}
+        - {x: 26, y: 32}
+        - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 26, y: -32}
+        - {x: 26, y: -18}
+        - {x: 31, y: -18}
+        - {x: 32, y: -17}
+      tessellationDetail: 1
       bones: []
       spriteID: 2f57a7f51288ba850800000000000000
       internalID: 6389350173272339954
@@ -463,20 +591,20 @@ TextureImporter:
       name: _oodWall_15
       rect:
         serializedVersion: 2
-        x: 24
-        y: 0
-        width: 8
-        height: 8
+        x: 208
+        y: 4
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -4, y: 4}
-        - {x: -4, y: -4}
-        - {x: 4, y: -4}
-        - {x: 4, y: 4}
-      tessellationDetail: 0
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+      tessellationDetail: 1
       bones: []
       spriteID: 4ecb8105e6ed6f0a0800000000000000
       internalID: -6848041617998693148

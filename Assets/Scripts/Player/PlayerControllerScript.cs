@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerControllerScript : MonoBehaviour
 {
@@ -10,8 +8,9 @@ public class PlayerControllerScript : MonoBehaviour
     public Transform cam;
     public Transform PlayerSprite;
 
-    private int MoveMode = 0; 
+    private int MoveMode = 0;
 
+    public bool OnShip = false;
 
     private float EnterAngle;
     private float ShipDegreeOffset;
@@ -26,6 +25,17 @@ public class PlayerControllerScript : MonoBehaviour
     }
     private void Update()
     {
+        if (!OnShip)
+        {
+            float rot = Input.GetAxis("RotateCamera");
+            if (Input.GetButton("RotateCamera") && (Time.realtimeSinceStartup - EnterTime) > .50f)
+            {
+                float temprot = cam.rotation.eulerAngles.z;
+                temprot += rot < 0 ? -.5f : .5f;
+                cam.rotation = Quaternion.Euler(0,0,temprot);
+            }
+        }
+
         if (Time.realtimeSinceStartup - TimeSinceStay > 1)
         {
             MoveMode = 0;
@@ -35,6 +45,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        OnShip = true;
         // Set timer Start
         MoveMode = 1;
         playerRB.mass = 0;
@@ -43,9 +54,9 @@ public class PlayerControllerScript : MonoBehaviour
         EnterAngle = cam.rotation.eulerAngles.z;
         ShipDegreeOffset = collision.transform.eulerAngles.z;
 
-        
 
-        print("cam: "+EnterAngle + ", ship: " + ShipDegreeOffset);
+
+        print("cam: " + EnterAngle + ", ship: " + ShipDegreeOffset);
         float temp = 45;
         int lowestIter = 0;
         var positive = 1;
@@ -55,7 +66,7 @@ public class PlayerControllerScript : MonoBehaviour
 
         for (var i = 0; i < 4; i++) // Rotate to the nearest 90 degrees then save as offset -- Works! 
         {
-            if(temp > Mathf.Abs(Mathf.DeltaAngle(EnterAngle, ShipDegreeOffset + (90 * i * positive))))
+            if (temp > Mathf.Abs(Mathf.DeltaAngle(EnterAngle, ShipDegreeOffset + (90 * i * positive))))
             {
                 //print("player is in between: " + (90 * i * positive) + " and " + ((90 * i * positive) + (90 * positive)));
                 temp = Mathf.Abs(Mathf.DeltaAngle(EnterAngle, ShipDegreeOffset + (90 * i * positive)));
@@ -63,18 +74,17 @@ public class PlayerControllerScript : MonoBehaviour
             }
         }
         ShipDegreeOffset = lowestIter * 90 * positive;
-        print("cam: "+ EnterAngle + ", ship: " + ShipDegreeOffset);
+        print("cam: " + EnterAngle + ", ship: " + ShipDegreeOffset);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         float rot = Input.GetAxis("RotateCamera");
-        if (Input.GetButtonDown("RotateCamera") && (Time.realtimeSinceStartup - EnterTime) > .50f)
+        if (Input.GetButton("RotateCamera") && (Time.realtimeSinceStartup - EnterTime) > .50f)
         {
             EnterAngle = cam.rotation.eulerAngles.z;
             EnterTime = Time.realtimeSinceStartup;
             ShipDegreeOffset += rot < 0 ? -90 : 90;
-            print(ShipDegreeOffset);
         }
 
         TimeSinceStay = Time.realtimeSinceStartup;
@@ -89,11 +99,12 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        OnShip = false;
         MoveMode = 0;
         playerRB.mass = 0.75f;
 
         Vector2 move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
+
         move = Vector2.ClampMagnitude(move, 1);
         Vector3 camF = cam.up;
         Vector3 camR = cam.right;
@@ -107,6 +118,7 @@ public class PlayerControllerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
 
         Vector2 move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         move = Vector2.ClampMagnitude(move, 1);
@@ -123,7 +135,7 @@ public class PlayerControllerScript : MonoBehaviour
 
 
         }
-        else if(MoveMode == 1)
+        else if (MoveMode == 1)
         {
 
             Vector3 camF = cam.up;
@@ -144,7 +156,7 @@ public class PlayerControllerScript : MonoBehaviour
 
 
         Vector3 dir = -move;
-        float angle = Mathf.Atan2(dir.x, -dir.y) * Mathf.Rad2Deg +90;
+        float angle = Mathf.Atan2(dir.x, -dir.y) * Mathf.Rad2Deg + 90;
         angle += cam.transform.localRotation.eulerAngles.z; // relitive to camera
 
 
@@ -154,4 +166,4 @@ public class PlayerControllerScript : MonoBehaviour
         if (move.sqrMagnitude > 0)
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
-} 
+}

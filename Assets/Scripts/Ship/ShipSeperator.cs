@@ -71,8 +71,8 @@ public class ShipSeperator : MonoBehaviour
     {
         //print("ShipSeperatorStart");
         ShipLayer = GameObject.FindGameObjectWithTag("ShipLayer");
-        SeperateShips();
-        //AdjustTiles();
+        //SeperateShips();
+        AdjustTiles();
 
 
     }
