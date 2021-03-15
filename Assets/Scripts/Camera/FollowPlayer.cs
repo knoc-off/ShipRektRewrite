@@ -27,10 +27,4 @@ public class FollowPlayer : MonoBehaviour
         temp.z = -10;
         transform.position = temp;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

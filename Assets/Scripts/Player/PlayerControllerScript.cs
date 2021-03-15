@@ -68,6 +68,15 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        float rot = Input.GetAxis("RotateCamera");
+        if (Input.GetButtonDown("RotateCamera") && (Time.realtimeSinceStartup - EnterTime) > .50f)
+        {
+            EnterAngle = cam.rotation.eulerAngles.z;
+            EnterTime = Time.realtimeSinceStartup;
+            ShipDegreeOffset += rot < 0 ? -90 : 90;
+            print(ShipDegreeOffset);
+        }
+
         TimeSinceStay = Time.realtimeSinceStartup;
         MoveMode = 1;
         playerRB.mass = 0;

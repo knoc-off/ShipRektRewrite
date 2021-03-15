@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+public class TileHealthCoordinator
+{
+    public Dictionary<Vector2Int, BlockStatus> BlockData = new Dictionary<Vector2Int, BlockStatus>();
+}
+
+
 public class ShipDataClass : MonoBehaviour
 {
+    public TileHealthCoordinator tileHealth = new TileHealthCoordinator();
     public GameObject Grid;
     public GameObject Floor;
     public GameObject Wall;
