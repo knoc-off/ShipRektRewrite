@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 
+using System.Reflection;
+using UnityEditor;
+using System;
+
+
+
+
 //[ExecuteInEditMode]
 //public class TileSync : MonoBehaviour
 //{
@@ -19,6 +26,13 @@ using UnityEngine.Tilemaps;
 
 public class TriggerTileMap : MonoBehaviour
 {
+    public static void ClearLogConsole()
+    {
+        Assembly assembly = Assembly.GetAssembly(typeof(Editor));
+        Type logEntries = assembly.GetType("UnityEditor.LogEntries");
+        MethodInfo clearConsoleMethod = logEntries.GetMethod("Clear");
+        clearConsoleMethod.Invoke(new object(), null);
+    }
     //public CompositeCollider2D collider;
     // Start is called before the first frame update
 
@@ -37,7 +51,7 @@ public class TriggerTileMap : MonoBehaviour
         try
         {
             Rigidbody2D obj = collision.gameObject.GetComponent<Rigidbody2D>();
-            obj.velocity = ThisShipRB.velocity * 1.02f; // 1.2? it keeps the player stationary. hope its not mass related
+            obj.velocity = ThisShipRB.GetPointVelocity(obj.transform.position) * 1.02f; // 1.2? it keeps the player stationary. hope its not mass related
         }
         catch
         {
@@ -48,7 +62,7 @@ public class TriggerTileMap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //print("Trigger Enter");
+        print("Trigger Enter : " + collision.name);
         try
         {
             if(collision.tag == "Player")

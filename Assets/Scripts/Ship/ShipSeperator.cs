@@ -67,94 +67,46 @@ public class ShipSeperator : MonoBehaviour
 {
     public GameObject ShipLayer;
     // Start is called before the first frame update
-    void Start()
-    {
-        //print("ShipSeperatorStart");
-        ShipLayer = GameObject.FindGameObjectWithTag("ShipLayer");
-        //SeperateShips();
-        AdjustTiles();
+    //void Start() 
+    //{
+    //    //print("ShipSeperatorStart");
+        
+    //    SeperateShips();
+    //    //AdjustTiles();
 
-
-    }
+    //}
     // i should make a list of all of the sprites and objects in the scene and then pass that info over to the ship creator
     public bool SeperateShips() // This works! // This has to be on the main thread
     {
+        ShipLayer = GameObject.FindGameObjectWithTag("ShipLayer");
         ShipDataClass ThisShip = GetComponent<ShipDataClass>();
+        
+        var ShipArrays = AdjustTiles();
 
-        Tilemap FloorLayoutTilemap = ThisShip.Floor.GetComponent<Tilemap>();
-        Tilemap WallLayoutTilemap = ThisShip.Wall.GetComponent<Tilemap>();  // and here
-        Tilemap TemplateLayoutmap = ThisShip.Grid.GetComponent<Tilemap>();  // and here
-        FloorLayoutTilemap.CompressBounds();
-        BoundsInt Bounds = FloorLayoutTilemap.cellBounds;
-        print("X: " + Bounds.size.x + " , Y: " + Bounds.size.y);
+        Tiles[,] FloorShipArray = ShipArrays.Floor;
+        Tiles[,] WallShipArray = ShipArrays.Wall;
 
-        Tiles[,] FloorShipArray = new Tiles[Bounds.size.x, Bounds.size.y + 1];
-        Tiles[,] WallShipArray = new Tiles[Bounds.size.x, Bounds.size.y + 1];     //here 
+        BoundsInt Bounds = ShipArrays.Bounds;
+        //for (int x = 0; x < Bounds.size.x; x++)
+        //{
+        //    for (int y = 0; y < Bounds.size.y + 1; y++)
+        //    {
+        //        //LayoutTilemap.origin;
+        //        FloorShipArray[x, y] = FloorLayoutTilemap.HasTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin) ? // if
+        //            TileManager.LookupTable[FloorLayoutTilemap.GetTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin)] : null;
 
-        GetTileIndex GetTileType = new GetTileIndex();
+        //        WallShipArray[x, y] = WallLayoutTilemap.HasTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin) ? //if 
+        //            TileManager.LookupTable[WallLayoutTilemap.GetTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin)] : null;
 
-        for (int x = 0; x < Bounds.size.x + 1; x++) // im able to get correct tile almost for free of preformance! 
-        {
-            for (int y = 0; y < Bounds.size.y + 2; y++) // get array that sets pos of x-1 ,y-1 to correct tile
-            {
-                if (x < Bounds.size.x) // shitty fix but it should work...
-                {
-                    if (y < Bounds.size.y + 1)
-                    {
-                        //LayoutTilemap.origin;
-                        FloorShipArray[x, y] = FloorLayoutTilemap.HasTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin) ? // if
-                            TileManager.LookupTable[FloorLayoutTilemap.GetTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin)] : null;
+        //        //FloorShipArray[x, y] = FloorLayoutTilemap.GetTile(new Vector3Int(x, y-1,0) + FloorLayoutTilemap.origin) != null ? 1 : 0;
+        //        //WallShipArray[x, y] = WallLayoutTilemap.GetTile(new Vector3Int(x, y-1,0) + FloorLayoutTilemap.origin) != null ? 1 : 0; // maby cahnge to wall origin ?
 
-                        WallShipArray[x, y] = WallLayoutTilemap.HasTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin) ? //if 
-                            TileManager.LookupTable[WallLayoutTilemap.GetTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin)] : null;
+        //    }
 
-                        //FloorShipArray[x, y] = FloorLayoutTilemap.GetTile(new Vector3Int(x, y-1,0) + FloorLayoutTilemap.origin) != null ? 1 : 0;
-                        //WallShipArray[x, y] = WallLayoutTilemap.GetTile(new Vector3Int(x, y-1,0) + FloorLayoutTilemap.origin) != null ? 1 : 0; // maby cahnge to wall origin ?
-                    }
+        //}
+        //arrayPrint(FloorShipArray);
 
-                }
-                if (x >= 1)
-                {
-                    if (y >= 1)
-                    {
-                        if (FloorShipArray[x - 1, y - 1] != null)
-                        {
-                            FloorLayoutTilemap.SetTile(new Vector3Int(x - 1, y - 2, 0) + FloorLayoutTilemap.origin,
-                               FloorShipArray[x - 1, y - 1].allTiles[GetTileType.Getindex(FloorShipArray, new Vector2Int(x - 1, y - 1))]);
-                            TemplateLayoutmap.SetTile(new Vector3Int(x - 1, y - 2, 0) + FloorLayoutTilemap.origin,
-                                TileManager.Template.allTiles[GetTileType.Getindex(FloorShipArray, new Vector2Int(x - 1, y - 1))]);
-                            if (WallShipArray[x - 1, y - 1] != null)
-                            {
-                                //WallType = TileManager.LookupTable[RefWallTilemap.GetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0))];
-                                WallLayoutTilemap.SetTile(new Vector3Int(x - 1, y - 2, 0) + FloorLayoutTilemap.origin,
-                                    WallShipArray[x - 1, y - 1].allTiles[GetTileType.Getindex(WallShipArray, new Vector2Int(x - 1, y - 1))]);    // messing up here as it is referencing the whole ship array and not wall array -- FIX THIS
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-            //for (int x = 0; x < Bounds.size.x; x++)
-            //{
-            //    for (int y = 0; y < Bounds.size.y + 1; y++)
-            //    {
-            //        //LayoutTilemap.origin;
-            //        FloorShipArray[x, y] = FloorLayoutTilemap.HasTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin) ? // if
-            //            TileManager.LookupTable[FloorLayoutTilemap.GetTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin)] : null;
-
-            //        WallShipArray[x, y] = WallLayoutTilemap.HasTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin) ? //if 
-            //            TileManager.LookupTable[WallLayoutTilemap.GetTile(new Vector3Int(x, y - 1, 0) + FloorLayoutTilemap.origin)] : null;
-
-            //        //FloorShipArray[x, y] = FloorLayoutTilemap.GetTile(new Vector3Int(x, y-1,0) + FloorLayoutTilemap.origin) != null ? 1 : 0;
-            //        //WallShipArray[x, y] = WallLayoutTilemap.GetTile(new Vector3Int(x, y-1,0) + FloorLayoutTilemap.origin) != null ? 1 : 0; // maby cahnge to wall origin ?
-
-            //    }
-
-            //}
-            //arrayPrint(FloorShipArray);
-
-            List<SubShip> SubShips = new List<SubShip>();
+        List<SubShip> SubShips = new List<SubShip>();
         List<Vector2Int> ListOfBlockPos = new List<Vector2Int>();
         for (int x = 0; x < Bounds.size.x; x++)
         {
@@ -210,6 +162,8 @@ public class ShipSeperator : MonoBehaviour
         }
         else
         {
+            //ShipDataClass newShipData = newShip.GetComponent<ShipDataClass>();
+            //newShipData.SetData();
 
         }
 
@@ -325,7 +279,7 @@ public class ShipSeperator : MonoBehaviour
 
     }
 
-    public void AdjustTiles() // specify bounds of where to look
+    public (Tiles[,] Floor, Tiles[,] Wall, BoundsInt Bounds) AdjustTiles() // specify bounds of where to look
     {
         ShipDataClass ThisShip = GetComponent<ShipDataClass>();
 
@@ -335,7 +289,7 @@ public class ShipSeperator : MonoBehaviour
 
         FloorLayoutTilemap.CompressBounds();
         BoundsInt Bounds = FloorLayoutTilemap.cellBounds;
-        print("X: " + Bounds.size.x + " , Y: " + Bounds.size.y);
+        //print("X: " + Bounds.size.x + " , Y: " + Bounds.size.y);
 
         Tiles[,] FloorShipArray = new Tiles[Bounds.size.x, Bounds.size.y + 1];
         Tiles[,] WallShipArray = new Tiles[Bounds.size.x, Bounds.size.y + 1];     //here 
@@ -381,30 +335,10 @@ public class ShipSeperator : MonoBehaviour
                         }
                     }
                 }
-
             }
-            //set row of tiles thats at y - 1
-            //if(x >= 1)
-            //for (int y2 = 0; y2 < Bounds.size.y + 1; y2++)
-            //    {
-            //        if (FloorShipArray[x - 1, y2] != null)
-            //        {
-            //            FloorLayoutTilemap.SetTile(new Vector3Int(x - 1, y2 - 1, 0) + FloorLayoutTilemap.origin,
-            //               FloorShipArray[x - 1, y2].allTiles[GetTileType.Getindex(FloorShipArray, new Vector2Int(x - 1, y2))]);
-            //            TemplateLayoutmap.SetTile(new Vector3Int(x - 1, y2 - 1, 0) + FloorLayoutTilemap.origin,
-            //                TileManager.Template.allTiles[GetTileType.Getindex(FloorShipArray, new Vector2Int(x - 1, y2))]);
-            //            if (WallShipArray[x - 1, y2] != null)
-            //            {
-            //                //WallType = TileManager.LookupTable[RefWallTilemap.GetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0))];
-            //                WallLayoutTilemap.SetTile(new Vector3Int(x - 1, y2 - 1, 0) + FloorLayoutTilemap.origin,
-            //                    WallShipArray[x - 1, y2].allTiles[GetTileType.Getindex(WallShipArray, new Vector2Int(x - 1, y2))]);    // messing up here as it is referencing the whole ship array and not wall array -- FIX THIS
-            //            }
-            //        }
-            //    }
-
         }
 
-
+        return (FloorShipArray,  WallShipArray, Bounds);
     }
 
 }

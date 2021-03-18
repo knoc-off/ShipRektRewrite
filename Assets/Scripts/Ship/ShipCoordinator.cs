@@ -18,6 +18,8 @@ public class ShipCoordinator : MonoBehaviour
         
         ShipDataClass newShipData = newShip.GetComponent<ShipDataClass>();
         newShipData.SetData();
+        newShipData.WallArray = ShipChunk.WallArray;
+        newShipData.FloorArray = ShipChunk.ShipArray;
 
         newShip.transform.parent = gameObject.transform;
 
@@ -32,10 +34,7 @@ public class ShipCoordinator : MonoBehaviour
         ShipDataClass ReferenceShipData = ReferenceShip.GetComponent<ShipDataClass>();
         ReferenceShipData.SetData();
 
-        Tilemap RefFloorTilemap = ReferenceShipData.Floor.GetComponent<Tilemap>();
-        Tilemap RefWallTilemap = ReferenceShipData.Wall.GetComponent<Tilemap>();
-
-        print("\t\t\tTEST: " + RefFloorTilemap.origin);
+        //print("\t\t\tTEST: " + RefFloorTilemap.origin);
 
         for (int x = 0; x < ShipChunk.ShipArray.GetLength(0); x++)
         {
@@ -94,8 +93,10 @@ public class ShipCoordinator : MonoBehaviour
 
             }
         }
+        FloorTilemap.CompressBounds();
+        WallTilemap.CompressBounds();
+        //Debug.ClearDeveloperConsole(); // ~~~~~~~~~~~~~~~~~~        remove this if debugging        ~~~~~~~~~~~~~~~~~~
 
-        
         return true;
     }
 }

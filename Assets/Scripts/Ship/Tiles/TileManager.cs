@@ -69,11 +69,28 @@ public class GetTileIndex
 public class Tiles
 {
     //Dictionary<>
+    public string Name;
+    public float DamageMult;
     public TileBase[] allTiles; // instantiate this at the constructor
     public Tiles(TileBase[] InputTiles)
     {
+        Name = "";
         allTiles = InputTiles;
+        DamageMult = 1;
     }
+    public Tiles(TileBase[] InputTiles, string Name)
+    {
+        this.Name = Name;
+        allTiles = InputTiles;
+        DamageMult = 1;
+    }
+    public Tiles(TileBase[] InputTiles, string Name, float DamageMult)
+    {
+        this.Name = Name;
+        allTiles = InputTiles;
+        this.DamageMult = DamageMult;
+    }
+
 
 }
 
@@ -81,6 +98,7 @@ public class Tiles
 
 public class TileManager : MonoBehaviour
 {
+    public float testingVar = 1;
     public static Dictionary<TileBase, Tiles> LookupTable = new Dictionary<TileBase, Tiles>();
 
     public static Tiles WeakWoodFloor;
@@ -99,13 +117,12 @@ public class TileManager : MonoBehaviour
     [SerializeField]
     private TileBase[] WoodWallArray = new TileBase[16];
 
-
-    private void Start()
+    public void Start()
     {
-        WeakWoodFloor = new Tiles(weakWoodFloorArray);
-        Template = new Tiles(TemplateArray);
-        SolidWoodFloor = new Tiles(SolidWoodFloorArray);
-        WoodWall = new Tiles(WoodWallArray);
+        WeakWoodFloor = new Tiles(weakWoodFloorArray,"WeakWoodFloor",2 * testingVar);
+        Template = new Tiles(TemplateArray, "Template",0 * testingVar);  // indestructable
+        SolidWoodFloor = new Tiles(SolidWoodFloorArray, "SolidWoodFloor",1.2f * testingVar);
+        WoodWall = new Tiles(WoodWallArray, "WoodWall",1 * testingVar);
         updateLookupList();
     }
 

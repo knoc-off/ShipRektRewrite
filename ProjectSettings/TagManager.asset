@@ -9,6 +9,7 @@ TagManager:
   - Grid
   - Ship
   - ShipLayer
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Wall
   - ShipCollider
   - OnShipCollider
-  - 
+  - PlayerHitbox
   - 
   - 
   - 
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 3539261869
+    locked: 0
+  - name: aboveWall
+    uniqueID: 4046453467
     locked: 0

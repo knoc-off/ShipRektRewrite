@@ -12,6 +12,8 @@ public class TileHealthCoordinator
 public class ShipDataClass : MonoBehaviour
 {
     public TileHealthCoordinator tileHealth = new TileHealthCoordinator();
+    public Tiles[,] FloorArray;
+    public Tiles[,] WallArray;
     public GameObject Grid;
     public GameObject Floor;
     public GameObject Wall;
@@ -41,5 +43,6 @@ public class ShipDataClass : MonoBehaviour
             if (g.tag == "Wall")
                 Wall = g.gameObject;
         }
+        GetComponent<ShipSeperator>().SeperateShips();
     }
 }
