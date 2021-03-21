@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: b233d95237c28b34a97a96a38fbe946c
+guid: c44a196a56ced7045b43132338f6ac76
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8849249265797553832
-    second: _emplate_0
+      213: -1910107007157519517
+    second: HighresNewCustomTile_0
   - first:
-      213: -9132753509154906913
-    second: _emplate_1
+      213: -2159508650626714583
+    second: HighresNewCustomTile_1
   - first:
-      213: -5933041516971505502
-    second: _emplate_2
+      213: 8684687712517879512
+    second: HighresNewCustomTile_2
   - first:
-      213: -2177520341824797944
-    second: _emplate_3
+      213: -6329365129736402255
+    second: HighresNewCustomTile_3
   - first:
-      213: 6042683499393395178
-    second: _emplate_4
+      213: 5017810450278559495
+    second: HighresNewCustomTile_4
   - first:
-      213: -4556012139117953495
-    second: _emplate_5
+      213: -3258224940034284203
+    second: HighresNewCustomTile_5
   - first:
-      213: 3941157901950163245
-    second: _emplate_6
+      213: 5448295554260415242
+    second: HighresNewCustomTile_6
   - first:
-      213: -6061719618105212279
-    second: _emplate_7
+      213: 6501249438342006050
+    second: HighresNewCustomTile_7
   - first:
-      213: -6567417929751658416
-    second: _emplate_8
+      213: -3203531237959734020
+    second: HighresNewCustomTile_8
   - first:
-      213: -4446360463235515373
-    second: _emplate_9
+      213: -4761507065492369934
+    second: HighresNewCustomTile_9
   - first:
-      213: -8811430451111813069
-    second: _emplate_10
+      213: -8520690411773769474
+    second: HighresNewCustomTile_10
   - first:
-      213: -2689933810931667151
-    second: _emplate_11
+      213: -8512909117136997719
+    second: HighresNewCustomTile_11
   - first:
-      213: -2007068260135488156
-    second: _emplate_12
+      213: 7582214970909710817
+    second: HighresNewCustomTile_12
   - first:
-      213: -1309336220367519615
-    second: _emplate_13
+      213: -8803193464070392900
+    second: HighresNewCustomTile_13
   - first:
-      213: 8947117324911664337
-    second: _emplate_14
+      213: -8994568434828291322
+    second: HighresNewCustomTile_14
   - first:
-      213: -329373678356150566
-    second: _emplate_15
+      213: 2838721654824271986
+    second: HighresNewCustomTile_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -137,7 +137,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _emplate_0
+      name: HighresNewCustomTile_0
       rect:
         serializedVersion: 2
         x: 2
@@ -149,20 +149,24 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -26, y: 26}
-        - {x: -26, y: -26}
-        - {x: 26, y: -26}
-        - {x: 26, y: 26}
-      tessellationDetail: 0
+      - - {x: 26, y: 15}
+        - {x: 15, y: 26}
+        - {x: -15, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -15}
+        - {x: -15, y: -26}
+        - {x: 15, y: -26}
+        - {x: 26, y: -15}
+      tessellationDetail: 0.68
       bones: []
-      spriteID: 8aedfb86259deca70800000000000000
-      internalID: 8849249265797553832
+      spriteID: 36b34631ccfed75e0800000000000000
+      internalID: -1910107007157519517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_1
+      name: HighresNewCustomTile_1
       rect:
         serializedVersion: 2
         x: 70
@@ -174,20 +178,22 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -26, y: -26}
+      - - {x: -26, y: 23}
+        - {x: -26, y: -23}
+        - {x: -23, y: -26}
         - {x: 32, y: -26}
         - {x: 32, y: 26}
-        - {x: -26, y: 26}
+        - {x: -23, y: 26}
       tessellationDetail: 0
       bones: []
-      spriteID: fdc9e912211f14180800000000000000
-      internalID: -9132753509154906913
+      spriteID: 924f206e252e702e0800000000000000
+      internalID: -2159508650626714583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_2
+      name: HighresNewCustomTile_2
       rect:
         serializedVersion: 2
         x: 138
@@ -201,18 +207,20 @@ TextureImporter:
       physicsShape:
       - - {x: -32, y: 26}
         - {x: -32, y: -26}
-        - {x: 26, y: -26}
-        - {x: 26, y: 26}
+        - {x: 23, y: -26}
+        - {x: 26, y: -23}
+        - {x: 26, y: 23}
+        - {x: 23, y: 26}
       tessellationDetail: 0
       bones: []
-      spriteID: 2a8c447cc2a99ada0800000000000000
-      internalID: -5933041516971505502
+      spriteID: 8d6f3d90675368870800000000000000
+      internalID: 8684687712517879512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_3
+      name: HighresNewCustomTile_3
       rect:
         serializedVersion: 2
         x: 206
@@ -230,14 +238,14 @@ TextureImporter:
         - {x: -32, y: 26}
       tessellationDetail: 0
       bones: []
-      spriteID: 803885e39c4e7c1e0800000000000000
-      internalID: -2177520341824797944
+      spriteID: 1ba415ce2f39928a0800000000000000
+      internalID: -6329365129736402255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_4
+      name: HighresNewCustomTile_4
       rect:
         serializedVersion: 2
         x: 2
@@ -249,20 +257,22 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -26, y: 26}
+      - - {x: -26, y: 23}
         - {x: -26, y: -32}
         - {x: 26, y: -32}
-        - {x: 26, y: 26}
+        - {x: 26, y: 23}
+        - {x: 23, y: 26}
+        - {x: -23, y: 26}
       tessellationDetail: 0
       bones: []
-      spriteID: ae9257f80acebd350800000000000000
-      internalID: 6042683499393395178
+      spriteID: 70fa81fd408d2a540800000000000000
+      internalID: 5017810450278559495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_5
+      name: HighresNewCustomTile_5
       rect:
         serializedVersion: 2
         x: 70
@@ -274,20 +284,21 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -26, y: -32}
-        - {x: -26, y: 26}
-        - {x: 32, y: 26}
+      - - {x: -18, y: 26}
+        - {x: -26, y: 18}
+        - {x: -26, y: -32}
         - {x: 32, y: -32}
+        - {x: 32, y: 26}
       tessellationDetail: 0
       bones: []
-      spriteID: 92eb187291bc5c0c0800000000000000
-      internalID: -4556012139117953495
+      spriteID: 55520fa0ea578c2d0800000000000000
+      internalID: -3258224940034284203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_6
+      name: HighresNewCustomTile_6
       rect:
         serializedVersion: 2
         x: 138
@@ -302,17 +313,18 @@ TextureImporter:
       - - {x: -32, y: 26}
         - {x: -32, y: -32}
         - {x: 26, y: -32}
-        - {x: 26, y: 26}
+        - {x: 26, y: 18}
+        - {x: 18, y: 26}
       tessellationDetail: 0
       bones: []
-      spriteID: d29967d0b3ec1b630800000000000000
-      internalID: 3941157901950163245
+      spriteID: a033807b0fb3c9b40800000000000000
+      internalID: 5448295554260415242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_7
+      name: HighresNewCustomTile_7
       rect:
         serializedVersion: 2
         x: 206
@@ -330,14 +342,14 @@ TextureImporter:
         - {x: -32, y: 26}
       tessellationDetail: 0
       bones: []
-      spriteID: 98282daaf1270eba0800000000000000
-      internalID: -6061719618105212279
+      spriteID: 22545984be3193a50800000000000000
+      internalID: 6501249438342006050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_8
+      name: HighresNewCustomTile_8
       rect:
         serializedVersion: 2
         x: 2
@@ -350,23 +362,21 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -26, y: 32}
-        - {x: -26, y: -26}
-        - {x: 26, y: -26}
+        - {x: -26, y: -23}
+        - {x: -23, y: -26}
+        - {x: 23, y: -26}
+        - {x: 26, y: -23}
         - {x: 26, y: 32}
-      - - {x: -26, y: -26}
-        - {x: -26, y: -26}
-        - {x: -26, y: -26}
-        - {x: -26, y: -26}
       tessellationDetail: 0
       bones: []
-      spriteID: 0500f954038dbd4a0800000000000000
-      internalID: -6567417929751658416
+      spriteID: cfcea86ef45ca83d0800000000000000
+      internalID: -3203531237959734020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_9
+      name: HighresNewCustomTile_9
       rect:
         serializedVersion: 2
         x: 70
@@ -379,19 +389,20 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -26, y: 32}
-        - {x: -26, y: -26}
+        - {x: -26, y: -15}
+        - {x: -15, y: -26}
         - {x: 32, y: -26}
         - {x: 32, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: 31c718d67ba5b42c0800000000000000
-      internalID: -4446360463235515373
+      spriteID: 2fd80dd2d8abbedb0800000000000000
+      internalID: -4761507065492369934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_10
+      name: HighresNewCustomTile_10
       rect:
         serializedVersion: 2
         x: 138
@@ -405,18 +416,19 @@ TextureImporter:
       physicsShape:
       - - {x: -32, y: 32}
         - {x: -32, y: -26}
-        - {x: 26, y: -26}
+        - {x: 15, y: -26}
+        - {x: 26, y: -15}
         - {x: 26, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: 330ab6e80b287b580800000000000000
-      internalID: -8811430451111813069
+      spriteID: ef8c52d073d60c980800000000000000
+      internalID: -8520690411773769474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_11
+      name: HighresNewCustomTile_11
       rect:
         serializedVersion: 2
         x: 206
@@ -434,14 +446,14 @@ TextureImporter:
         - {x: 32, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: 13fea1a637f6baad0800000000000000
-      internalID: -2689933810931667151
+      spriteID: 9a27dd3e2421cd980800000000000000
+      internalID: -8512909117136997719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_12
+      name: HighresNewCustomTile_12
       rect:
         serializedVersion: 2
         x: 2
@@ -453,20 +465,22 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 26, y: -32}
+      - - {x: -26, y: 32}
+        - {x: -26, y: -31}
+        - {x: -25, y: -32}
+        - {x: 25, y: -32}
+        - {x: 26, y: -31}
         - {x: 26, y: 32}
-        - {x: -26, y: 32}
-        - {x: -26, y: -32}
       tessellationDetail: 0
       bones: []
-      spriteID: 465b9a22d067524e0800000000000000
-      internalID: -2007068260135488156
+      spriteID: 1e9d8bff750793960800000000000000
+      internalID: 7582214970909710817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_13
+      name: HighresNewCustomTile_13
       rect:
         serializedVersion: 2
         x: 70
@@ -479,19 +493,20 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -26, y: 32}
-        - {x: -26, y: -32}
+        - {x: -26, y: -31}
+        - {x: -25, y: -32}
         - {x: 32, y: -32}
         - {x: 32, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: 180017d05ad44dde0800000000000000
-      internalID: -1309336220367519615
+      spriteID: cb33b0d8f26c4d580800000000000000
+      internalID: -8803193464070392900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_14
+      name: HighresNewCustomTile_14
       rect:
         serializedVersion: 2
         x: 138
@@ -503,20 +518,21 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 26, y: -32}
-        - {x: 26, y: 32}
-        - {x: -32, y: 32}
+      - - {x: -32, y: 32}
         - {x: -32, y: -32}
+        - {x: 25, y: -32}
+        - {x: 26, y: -31}
+        - {x: 26, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: 1dc5a1b9dcb8a2c70800000000000000
-      internalID: 8947117324911664337
+      spriteID: 6035e1ee9afdc2380800000000000000
+      internalID: -8994568434828291322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _emplate_15
+      name: HighresNewCustomTile_15
       rect:
         serializedVersion: 2
         x: 206
@@ -534,8 +550,8 @@ TextureImporter:
         - {x: 32, y: 32}
       tessellationDetail: 0
       bones: []
-      spriteID: ad6c7377264dd6bf0800000000000000
-      internalID: -329373678356150566
+      spriteID: 270820c0e4a256720800000000000000
+      internalID: 2838721654824271986
       vertices: []
       indices: 
       edges: []

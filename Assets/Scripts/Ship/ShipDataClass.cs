@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class TileHealthCoordinator
 {
-    public Dictionary<Vector2Int, BlockStatus> BlockData = new Dictionary<Vector2Int, BlockStatus>();
+    public Dictionary<Vector2Int, BlockStatus> tileWallHealth = new Dictionary<Vector2Int, BlockStatus>();
+    public Dictionary<Vector2Int, BlockStatus> tileFloorHealth = new Dictionary<Vector2Int, BlockStatus>();
 }
 
 
@@ -43,6 +44,13 @@ public class ShipDataClass : MonoBehaviour
             if (g.tag == "Wall")
                 Wall = g.gameObject;
         }
-        GetComponent<ShipSeperator>().SeperateShips();
+        try
+        {
+            GetComponent<ShipSeperator>().SeperateShips();  // this sets up the wall and floor
+        }
+        catch
+        {
+            GetComponent<StaticTileSync>().AdjustTiles();
+        }
     }
 }

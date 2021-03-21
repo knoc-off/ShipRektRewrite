@@ -100,7 +100,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1839735485 &7997811864247280289
@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762bc4d7d0b39de43aa32fc5271ba3e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageMult: 0
 --- !u!1 &7997811865414089744
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,3 +662,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762bc4d7d0b39de43aa32fc5271ba3e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageMult: 0

@@ -21,6 +21,8 @@ public class ShipCoordinator : MonoBehaviour
         newShipData.WallArray = ShipChunk.WallArray;
         newShipData.FloorArray = ShipChunk.ShipArray;
 
+        newShipData.tileHealth = ShipChunk.HealthTracker;
+
         newShip.transform.parent = gameObject.transform;
 
         newShipData.Grid.GetComponent<Rigidbody2D>().velocity = Velocity;

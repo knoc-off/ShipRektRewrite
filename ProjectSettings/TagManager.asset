@@ -10,6 +10,8 @@ TagManager:
   - Ship
   - ShipLayer
   - Projectile
+  - Island
+  - EnviromentLayer
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class SubShip    // should add a type of array that stores what kind of b
     public Vector2Int Origin; // 0,0 of this array corrisponds to the X,Y of the Parent array
     public Tiles[,] ShipArray;
     public Tiles[,] WallArray;
+    public TileHealthCoordinator HealthTracker;
 
     public List<Vector2Int> AllBlocks;
     public SubShip(Tiles[,] ShipChunk, Tiles[,] ShipWall, Vector2Int Zeros, List<Vector2Int> Tiles)
@@ -16,6 +17,16 @@ public class SubShip    // should add a type of array that stores what kind of b
         ShipArray = ShipChunk;
         Origin = Zeros;
         AllBlocks = Tiles;
+        HealthTracker = new TileHealthCoordinator();
+    }
+    public SubShip(Tiles[,] ShipChunk, Tiles[,] ShipWall, Vector2Int Zeros, List<Vector2Int> Tiles, TileHealthCoordinator healthDict)
+    {
+
+        WallArray = ShipWall;
+        ShipArray = ShipChunk;
+        Origin = Zeros;
+        AllBlocks = Tiles;
+        HealthTracker = healthDict;
     }
 
 }
@@ -120,7 +131,7 @@ public class ShipSeperator : MonoBehaviour
                         //a = ShipArray;
                         //a[x,y] = 2;
                         //arrayPrint(a);
-                        SubShip shipChunk = FloodSearch(new Vector2Int(x, y), FloorShipArray, WallShipArray);   // add a print here to show where its found a 1
+                        SubShip shipChunk = FloodSearch(new Vector2Int(x, y), FloorShipArray, WallShipArray, ThisShip.tileHealth);   // add a print here to show where its found a 1
                         SubShips.Add(shipChunk);
                         ListOfBlockPos.AddRange(shipChunk.AllBlocks);
                     }
@@ -203,8 +214,10 @@ public class ShipSeperator : MonoBehaviour
         print("═══════════════════════════════════════════════════════════════");
     }
 
-    private SubShip FloodSearch(Vector2Int Start, Tiles[,] SearchArray, Tiles[,] wallArray) // im 90% sure this can be pushed to another thread with minor reworks
+    private SubShip FloodSearch(Vector2Int Start, Tiles[,] SearchArray, Tiles[,] wallArray, TileHealthCoordinator MainShipHealth) // im 90% sure this can be pushed to another thread with minor reworks
     {
+        TileHealthCoordinator healthValues = new TileHealthCoordinator();
+
         List<Vector2Int> Searched = new List<Vector2Int>();
         List<Vector2Int> toSearch = new List<Vector2Int>();
         toSearch.Add(Start);
@@ -267,15 +280,27 @@ public class ShipSeperator : MonoBehaviour
         print(" minx " + minX + " , miny " + minY + " \t " + "maxX " + maxX + " , maxY " + maxY + "\n" + "ARRAY SIZE: " + (maxX - minX + 1) + ", " + (maxY - minY + 1));
         Tiles[,] ReturnArray = new Tiles[maxX - minX + 1, maxY - minY + 2];
         Tiles[,] ReturnWallArray = new Tiles[maxX - minX + 1, maxY - minY + 2];
+
+
+        Vector2Int offsetpos;
         foreach (var pos in Searched)
         {
             //print("x "+(pos.x - minX) + " , y " + (pos.y - minY));
-            ReturnArray[pos.x - minX, pos.y - minY + 1] = SearchArray[pos.x, pos.y];    // out of bounds
-            ReturnWallArray[pos.x - minX, pos.y - minY + 1] = wallArray[pos.x, pos.y];
+            offsetpos = new Vector2Int(pos.x - minX, pos.y - minY + 1);
+            ReturnArray[offsetpos.x, offsetpos.y] = SearchArray[pos.x, pos.y];    // out of bounds
+            ReturnWallArray[offsetpos.x, offsetpos.y] = wallArray[pos.x, pos.y];
+            // ReturnWallArray[pos.x - minX, pos.y - minY + 1] = wallArray[pos.x, pos.y];
+            if (MainShipHealth.tileFloorHealth.ContainsKey(pos))
+                healthValues.tileFloorHealth.Add(offsetpos, MainShipHealth.tileFloorHealth[pos]);
+
+            if (MainShipHealth.tileWallHealth.ContainsKey(pos))
+                healthValues.tileWallHealth.Add(offsetpos, MainShipHealth.tileWallHealth[pos]);
+
+
         }
         //int[,] NewArray = new int[maxX,maxY];
 
-        return new SubShip(ReturnArray, ReturnWallArray, new Vector2Int(minX, minY), Searched);
+        return new SubShip(ReturnArray, ReturnWallArray, new Vector2Int(minX, minY), Searched, healthValues);
 
     }
 
@@ -287,7 +312,11 @@ public class ShipSeperator : MonoBehaviour
         Tilemap WallLayoutTilemap = ThisShip.Wall.GetComponent<Tilemap>();  // and here
         Tilemap TemplateLayoutmap = ThisShip.Grid.GetComponent<Tilemap>();  // and here
 
+        TemplateLayoutmap.ClearAllTiles();
+
         FloorLayoutTilemap.CompressBounds();
+        WallLayoutTilemap.CompressBounds();
+        TemplateLayoutmap.CompressBounds();
         BoundsInt Bounds = FloorLayoutTilemap.cellBounds;
         //print("X: " + Bounds.size.x + " , Y: " + Bounds.size.y);
 
@@ -323,7 +352,7 @@ public class ShipSeperator : MonoBehaviour
                         if (FloorShipArray[x - 1, y - 1] != null)
                         {
                             FloorLayoutTilemap.SetTile(new Vector3Int(x - 1, y - 2, 0) + FloorLayoutTilemap.origin,
-                               FloorShipArray[x - 1, y - 1].allTiles[GetTileType.Getindex(FloorShipArray, new Vector2Int(x - 1, y - 1))]);
+                               FloorShipArray[x - 1, y - 1].allTiles[GetTileType.Getindex(FloorShipArray, new Vector2Int(x - 1, y - 1))]); // add health offset here
                             TemplateLayoutmap.SetTile(new Vector3Int(x - 1, y - 2, 0) + FloorLayoutTilemap.origin,
                                 TileManager.Template.allTiles[GetTileType.Getindex(FloorShipArray, new Vector2Int(x - 1, y - 1))]);
                             if (WallShipArray[x - 1, y - 1] != null)
@@ -337,7 +366,8 @@ public class ShipSeperator : MonoBehaviour
                 }
             }
         }
-
+        ThisShip.FloorArray = FloorShipArray;
+        ThisShip.WallArray= WallShipArray;
         return (FloorShipArray,  WallShipArray, Bounds);
     }
 
