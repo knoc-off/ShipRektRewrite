@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class ShipCoordinator : MonoBehaviour
@@ -12,10 +10,10 @@ public class ShipCoordinator : MonoBehaviour
         GetTileIndex GetTileType = new GetTileIndex();
         //GameObject Shiplayer = GameObject.FindGameObjectWithTag("ShipLayer");
 
-        
+
 
         GameObject newShip = Instantiate(ShipPrefab);
-        
+
         ShipDataClass newShipData = newShip.GetComponent<ShipDataClass>();
         newShipData.SetData();
         newShipData.WallArray = ShipChunk.WallArray;
@@ -63,7 +61,7 @@ public class ShipCoordinator : MonoBehaviour
                 //if (ShipChunk.ShipArray[x, y] == 1)
                 //    TileType = TileManager.LookupTable[FloorTilemap.GetTile(new Vector3Int(x + ShipChunk.Origin.x + Offset.x, y + ShipChunk.Origin.y + Offset.y, 0))];
 
-                Vector2Int OffsetInt = new Vector2Int((int)Offset.x, (int)Offset.y-2);
+                Vector2Int OffsetInt = new Vector2Int((int)Offset.x, (int)Offset.y - 2);
                 //GridTemplate.SetTile(new Vector3Int(x + ShipChunk.Origin.x + Offset.x, y + ShipChunk.Origin.y + Offset.y, 0), ShipChunk.ShipArray[x, y] == 1 ?
                 //    TileManager.Template.allTiles[GetTileType.Getindex(ShipChunk.ShipArray, new Vector2Int(x, y))] : null);
 
@@ -75,16 +73,16 @@ public class ShipCoordinator : MonoBehaviour
 
                     //TileType = TileManager.LookupTable[RefFloorTilemap.GetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0))]; // This works!
 
-                    if(ShipChunk.WallArray[x, y] != null)
+                    if (ShipChunk.WallArray[x, y] != null)
                     {
-
+                        //something
                         //WallType = TileManager.LookupTable[RefWallTilemap.GetTile(new Vector3Int(x + Offset.x, y + Offset.y, 0))];
                         WallTilemap.SetTile(new Vector3Int(x + OffsetInt.x, y + OffsetInt.y, 0),
                             ShipChunk.WallArray[x, y].allTiles[GetTileType.Getindex(ShipChunk.WallArray, new Vector2Int(x, y))]);    // messing up here as it is referencing the whole ship array and not wall array -- FIX THIS
                     }
 
                     FloorTilemap.SetTile(new Vector3Int(x + OffsetInt.x, y + OffsetInt.y, 0),
-                        ShipChunk.ShipArray[x, y].allTiles[GetTileType.Getindex(ShipChunk.ShipArray, new Vector2Int(x, y))] );
+                        ShipChunk.ShipArray[x, y].allTiles[GetTileType.Getindex(ShipChunk.ShipArray, new Vector2Int(x, y))]);
                     GridTemplate.SetTile(new Vector3Int(x + OffsetInt.x, y + OffsetInt.y, 0),
                         TileManager.Template.allTiles[GetTileType.Getindex(ShipChunk.ShipArray, new Vector2Int(x, y))]);
 

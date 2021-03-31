@@ -50,7 +50,7 @@ public class StaticTileSync: MonoBehaviour
                     }
 
                 }
-                if (x >= 1)
+                if (x >= 1) // use a compute shader to process the rotation of each tile in paralell
                 {
                     if (y >= 1)
                     {

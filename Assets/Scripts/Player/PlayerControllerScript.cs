@@ -95,6 +95,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        OnShip = true;
         if (Mathf.Abs(Mathf.DeltaAngle(EnterAngle, collision.transform.eulerAngles.z + ShipDegreeOffset)) > 0.5)
             rotate = true;
         else

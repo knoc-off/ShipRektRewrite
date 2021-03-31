@@ -18,6 +18,7 @@ public class ShipDataClass : MonoBehaviour
     public GameObject Grid;
     public GameObject Floor;
     public GameObject Wall;
+    public bool MainShip; // main ship would be connected to a core
 
     // Start is called before the first frame update
     void Start()

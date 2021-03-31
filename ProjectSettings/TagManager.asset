@@ -12,6 +12,7 @@ TagManager:
   - Projectile
   - Island
   - EnviromentLayer
+  - Core
   layers:
   - Default
   - TransparentFX

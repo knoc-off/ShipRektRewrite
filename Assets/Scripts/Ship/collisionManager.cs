@@ -82,6 +82,9 @@ public class collisionManager : MonoBehaviour
     //    Gizmos.DrawWireSphere(V2ToV3(GizmoDrawCirclePos), 0.25f);
 
     //}
+
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // when new collsiion get all points of collision store that then in the on collision stay iterate through that and apply damage accordingly
